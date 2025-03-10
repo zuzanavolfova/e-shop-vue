@@ -1,3 +1,4 @@
+@import './color.css';
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -11,6 +12,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
+ 
 }
 
 *,
@@ -40,4 +42,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.button {
+  --button-background-color: var(--dark-blue);
+  --button-width-S: 50px;
+  --button-width-M: 60px;
+  --button-width-L: 80px;
+  --button-border-radius: 8px;
+  --button-padding: 8px;
 }
