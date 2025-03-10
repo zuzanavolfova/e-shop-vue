@@ -10,7 +10,10 @@ export interface State {
 // Vytvoření store
 export default createStore<State>({
   state: {
-    Acount: 0, // Výchozí hodnota
+    data: {
+      "1": 2,
+      Acount: 0, // Výchozí hodnota
+    }
   },
   mutations: mutations,
   actions: actions,
