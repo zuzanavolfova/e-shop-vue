@@ -6,7 +6,6 @@
         itemID: {
             type: Number,
             required: true,
-            default: 10
         }
     });  
     const store = useStore();
@@ -15,15 +14,17 @@
         store.state.data[props.itemID] ++
     }
     const removeOneItem = ()=>{
-        store.state.data[props.itemID] --        
+        if(store.state.data[props.itemID] > 0){
+            store.state.data[props.itemID] --;
+        }
     }
 </script>
 
 <template>
     <div data-test-id="add-item" class="add-item flex">
-        <div class="add-item_button" @click="addOneItem">-</div>
+        <div class="add-item_button" @click="removeOneItem">-</div>
         <div class="add-item_counter"> {{ itemCounter }}</div>
-        <div class="add-item_button"  @click="removeOneItem">+</div>
+        <div class="add-item_button"  @click="addOneItem">+</div>
     </div>
 </template>
 
