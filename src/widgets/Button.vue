@@ -1,5 +1,6 @@
 <script setup lang="ts">
-    import {ref } from 'vue';
+    import {ref, defineEmits} from 'vue';
+
     const props = defineProps({
         buttonType: {
             type: String,
@@ -20,13 +21,15 @@
         required: true,
         }
     });  
-const buttonWidth = ref('var(--button-width-' + props.buttonType + ')')
-
+    const emit = defineEmits(["button-action"]);
+    const buttonWidth = ref('var(--button-width-' + props.buttonType + ')')
 
 </script>
+
 <template>
-    <div data-test-id="button" class="button" @click="$emit(props.buttonAction)">{{ buttonTitle }}</div>
+    <div data-test-id="button" class="button" @click="emit('button-action', props.itemID)">{{ buttonTitle }}</div>
 </template>
+
 <style scoped>
     .button {
         color: white;
